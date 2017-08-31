@@ -1,0 +1,124 @@
+<?php $this->part('Header',$header);?>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="width:100%;">
+        <h1 style="text-align:left;">
+            设备管理
+            <small>list</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">设备管理</li>
+            <li >设备批次管理</li>
+        </ol>	
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="nav-tabs-custom">
+                        <!-- tab 标签 -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="javascript:;" data-toggle="tab">设备批次管理</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="bicycle">
+                                <form class="search_form" id="search_form">
+                                    <!--分页字段-->
+                                    <input type="hidden" id="page" name="page" value="1" />
+                                    <!--排序字段-->
+                                    <input type="hidden" id="order" name="order" value="" />
+                                    <!-- 搜索 -->
+                                    <div class="dataTables_length fa-border" style="margin: 10px 0; padding: 10px">
+                                        <select name="filter_type" id="filter_type" class="input-sm">
+                                            <option value="id" selected="selected">ID</option>
+                                            <option value="batch">实体批次</option>
+                                            <option value="start">实体序列号</option>
+                                        </select>
+                                        <input type="text" name="id" value="" id="filter_text" class="input-sm" style="border: 1px solid #a9a9a9;" onkeydown="javascript:if (event.keyCode == 13)
+                                                                            return false;">
+                                        <!--                                <input type="text" name="add_time" value="" class="input-sm date-range" style="border: 1px solid #a9a9a9;" placeholder="注册时间">-->
+                                        <div class="btn btn-primary btn-sm btn-user-search"><i class="fa fa-search"></i>&nbsp;搜索</div>
+                                        <div class="btn btn-default btn-sm btn_add"><i class="fa fa-plus"></i>&nbsp;新增</div>
+                                    </div>
+                                </form>
+                                <!--                        <div class="form-group">
+                                                            
+                                                        </div>-->
+                                <form id="table_form" class="table_form table-responsive" method="post">
+                                    <table class="table table-bordered table-hover dataTable table-striped text-center" role="grid">
+                                        <thead class="tr_order">
+                                            <tr>
+                                                <th>ID<i class="fa fa-fw fa-sort-amount-desc" data-order="id"></i></th>
+                                                <th>实体名称<i class="fa fa-fw"></i></th>
+                                                <th>实体单价<i class="fa fa-fw fa-sort-amount-desc" data-order="price"></i></th>
+                                                <th>实体批次<i class="fa fa-fw fa-sort-amount-desc" data-order="batch"></i></th>
+                                                <th>实体序列号<i class="fa fa-fw fa-sort-amount-desc" data-order="start"></i></th>
+                                                <th>数量<i class="fa fa-fw fa-sort-amount-desc" data-order="total"></i></th>
+                                                <th>状态<i class="fa fa-fw fa-sort-amount-desc" data-order="status"></i></th>
+                                                <th>是否生成<i class="fa fa-fw fa-sort-amount-desc" data-order="generate"></i></th>
+                                                <th style="min-width:120px;">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="tr_msg">
+
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="tcdPageCode"></div>                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </section>
+        <!-- /.content -->
+    </div>
+</div>
+<!--弹出框修改 -->
+<form id="post-form">
+    <input type="hidden" name="id" id="id" value="" />
+    <div class="container_tan">
+        <div class="">
+            <div class="box-body"  id="ocheck">
+                <div class="form-group">
+                    <label for="name">实体名称</label>
+                    <input type="text" class="form-control oChname" value="" id="name" name="name" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="price">实体单价</label>
+                    <input type="text" class="form-control oChmoney" value="" id="price" name="price" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="start">实体序列号</label>
+                    <input type="text" class="form-control oChNonumber" value="" id="start" name="start" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="total">数量</label>
+                    <input type="text" class="form-control  oChpattern" value="" id="total" name="total" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group" id="form-group-status">
+                    <label for="status">状态</label>
+                    <select id="status" name="status" class="form-control">
+                        <option value="0" selected="selected" >正常</option>
+                        <option value="1">删除</option>
+                        <option value="2">禁用</option>
+                    </select>
+                </div>
+                <div class="form"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><a class="btn btn-default text-center btn_exit">取消</a></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><a class="btn btn-default text-center btn_sure btn-post">确定</a></div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="tan_bgs"></div>
+<!-- /.content-wrapper -->
+<?php $this->part('Footer');?>
+<script>
+    entitysn();
+</script>

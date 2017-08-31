@@ -1,0 +1,153 @@
+<?php $this->part('Header',$header);?>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="width:100%;">
+        <h1 style="text-align:left;">
+            参数设置
+            <small>list</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>参数设置</li>
+        </ol>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="nav-tabs-custom">
+                        <!-- tab 标签 -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="javascript:;" data-toggle="tab">文档分类</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="bicycle">
+                                <form class="search_form" id="search_form">
+                                    <!--分页字段-->
+                                    <input type="hidden" id="page" name="page" value="1" />
+                                    <!--排序字段-->
+                                    <input type="hidden" id="order" name="order" value="" />
+                                    <!-- 搜索 -->
+                                    <div class="dataTables_length fa-border" style="margin: 10px 0; padding: 10px">
+                                        <select name="filter_type" id="filter_type" class="input-sm">
+                                            <option value="id" selected="">ID</option>
+                                            <option value="parent_id">加盟商ID</option>
+                                        </select>
+                                        <input type="text" name="id" value="" id="filter_text" class="input-sm" style="border: 1px solid #a9a9a9;"  onkeydown="javascript:if(event.keyCode==13) return false;">
+                                        <div class="btn btn-primary btn-sm btn-search"><i class="fa fa-search"></i>&nbsp;搜索</div>
+                                        <div class="btn btn-default btn-sm btn_add"><i class="fa fa-plus"></i>&nbsp;新增</div>
+                                    </div>
+                                </form>
+                                <form id="table_form" class="table_form table-responsive" method="post">
+                                    <table class="table table-bordered table-hover dataTable table-striped text-center" role="grid">
+                                        <thead class="tr_order">
+                                        <tr>
+                                            <th>ID<i class="fa fa-fw fa-sort-amount-desc" data-order="id"></i></th>
+                                            <th>加盟商ID<i class="fa fa-fw fa-sort-amount-desc" data-order="agent_id"></i></th>
+                                            <th>状态<i class="fa fa-fw fa-sort-amount-desc" data-order="status"></i></th>
+                                            <th>建立时间<i class="fa fa-fw fa-sort-amount-desc" data-order="ctime"></i></th>
+                                            <th style="min-width:120px;">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="tr_msg">
+
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="tcdPageCode"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+</div>
+<!--弹出框修改 -->
+<form id="post-form">
+    <input type="hidden" name="id" id="id" value="" />
+    <div class="container_tan">
+        <div class="">
+            <div class="box-body" id="ocheck">
+                <div class="form-group" id="form-group-agent">
+                    <label for="agent_id">加盟商ID</label>
+                    <select id="agent_id" name="agent_id" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="platform">平台名称</label>
+                    <input type="text" class="form-control oChkong" value="" id="platform" name="platform" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="website">平台域名</label>
+                    <input type="text" class="form-control oChkong" value="" id="website" name="website" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="company">公司名称</label>
+                    <input type="text" class="form-control oChkong" value="" id="company" name="company" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="address">联系地址</label>
+                    <input type="text" class="form-control oChkong" value="" id="address" name="address" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">联系电话</label>
+                    <input type="text" class="form-control oChkong" value="" id="mobile" name="mobile" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="icpcode">网站备案号</label>
+                    <input type="text" class="form-control oChkong" value="" id="icpcode" name="icpcode" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="device">设备名称</label>
+                    <input type="text" class="form-control oChkong" value="" id="device" name="device" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="number">设备数量</label>
+                    <input type="text" class="form-control oChkong" value="" id="number" name="number" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="mode">平台模式</label>
+                    <select id="mode" name="mode" class="form-control">
+                        <option value="1">独立运营</option>
+                        <option value="2">平台加盟</option>
+                        <option value="3">三级分销</option>
+                        <option value="4">平台合伙人</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="proportion">分成比例参数</label>
+                    <select id="proportion" name="proportion" class="form-control">
+                        <option value="0">无分成</option>
+                        <option value="1">平台</option>
+                        <option value="2">加盟商</option>
+                        <option value="3">分销商</option>
+                        <option value="4">合伙人</option>
+                    </select>
+                </div>
+                <div class="form-group" id="form-group-status">
+                    <label for="status">状态</label>
+                    <select id="status" name="status" class="form-control">
+                        <option value="0" selected="selected" >正常</option>
+                        <option value="1">删除</option>
+                        <option value="2">禁用</option>
+                    </select>
+                </div>
+                <div class="form"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><a class="btn btn-default text-center btn_exit">取消</a></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><a class="btn btn-default text-center btn_sure btn-post">确定</a></div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="tan_bgs"></div>
+<!-- /.content-wrapper -->
+<?php $this->part('Footer');?>
+<script>
+    profile();
+</script>

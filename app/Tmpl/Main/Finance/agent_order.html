@@ -1,0 +1,75 @@
+<?php $this->part('Header',$header);?>
+<div class="content-wrapper">
+    		<!-- Content Header (Page header) -->
+			<div class="content-header" style="width:100%;height:100%;">
+			    <h1 style="text-align:left;">
+			        财务管理
+			        <small>list</small>
+			    </h1>
+			    <ol class="breadcrumb">
+			        <li><a href="/index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+			        <li >财务管理</li>
+			        <li class="active">代理商财务记录</li>
+			    </ol>	
+				<!-- Main content -->
+				<section class="content">
+				    <div class="row">
+				        <div class="col-xs-12">
+				            <div class="nav-tabs-custom">
+				                <!-- tab 标签 -->
+				                <ul class="nav nav-tabs">
+				                    <li class="active"><a href="javascript:;" data-toggle="tab">代理商财务记录</a></li>
+				                </ul>
+				                <div class="tab-content">
+                                                    <div class="tab-pane active" id="bicycle">
+                                                        <form class="user_search_form" id="user_search_form">
+                                                            <!--分页字段-->
+                                                            <input type="hidden" id="page" name="page" value="1" />
+                                                            <!--排序字段-->
+                                                            <input type="hidden" id="order" name="order" value="" />
+                                                            <!-- 搜索 -->
+                                                            <div class="dataTables_length fa-border" style="margin: 10px 0; padding: 10px">
+                                                                <input type="hidden" id="agent_id" name="agent_id" value="" />
+                                                                <select name="filter_type" id="filter_type" class="input-sm">
+                                                                    <option value="id" selected="">ID</option>
+                                                                    <option value="client_id">用户ID</option>
+                                                                    <option value="payment_id">支付ID</option>
+                                                                    <option value="payment_id">支付单号</option>
+                                                                </select>
+                                                                <input type="text" name="id" value="" id="filter_text" class="input-sm" style="border: 1px solid #a9a9a9;" onkeydown="javascript:if(event.keyCode==13) return false;">
+                                                                <div class="btn btn-primary btn-sm btn-user-search"><i class="fa fa-search"></i>&nbsp;搜索</div>
+                                                            </div>
+                                                        </form>
+                                                        <form id="table_form" class="table_form table-responsive" method="post">
+                                                            <table class="table table-bordered table-hover dataTable table-striped text-center" role="grid">
+                                                                <thead class="tr_order">
+                                                                <tr>
+                                                                    <th>ID<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="id"></i></th>
+                                                                    <!--<th>用户ID<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="client_id"></i></th>-->
+                                                                    <th>用户姓名</th>
+                                                                    <th>支付ID<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="payment_id"></i></th>
+                                                                    <th>备注信息</th>
+                                                                    <th>当前余额<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="current"></i></th>
+                                                                    <th>状态<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="status"></i></th>
+                                                                    <th>创建时间<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="ctime"></i></th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody class="tr_msg">
+
+                                                                </tbody>
+                                                            </table>
+                                                        </form>
+                                                        <div class="tcdPageCode"></div>
+                                                    </div>
+                                                </div>
+				            </div>
+				        </div>
+				    </div>     
+				</section>
+				    <!-- /.content -->
+			</div>
+		</div>
+<?php $this->part('Footer');?>
+<script>
+    finance();
+</script>

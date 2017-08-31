@@ -1,0 +1,79 @@
+<?php $this->part('Header',$header);?>
+<title>实体列表 - 共享硬件云平台在线管理</title>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="width:100%;">
+        <h1 style="text-align:left;">
+            设备管理
+            <small>list</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li >设备管理</li>
+            <li class="active">实体列表</li>
+        </ol>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="nav-tabs-custom">
+                        <!-- tab 标签 -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="javascript:;" data-toggle="tab">实体列表</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="bicycle">
+                                <form class="user_search_form" id="user_search_form">
+                                    <!--分页字段-->
+                                    <input type="hidden" id="page" name="page" value="1" />
+                                    <!--排序字段-->
+                                    <input type="hidden" id="order" name="order" value="" />
+                                    <!-- 搜索 -->
+                                    <div class="dataTables_length fa-border" style="margin: 10px 0; padding: 10px">
+                                        <select name="filter_type" id="filter_type" class="input-sm">
+                                            <option value="id" selected="selected">ID</option>
+                                            <option value="entsn_id">实体ID</option>
+                                            <option value="sn">实体序列号</option>
+                                        </select>
+                                        <input type="text" name="id" value="" id="filter_text" class="input-sm" style="border: 1px solid #a9a9a9;" onkeydown="javascript:if(event.keyCode==13) return false;">
+                                        <!--                                <input type="text" name="add_time" value="" class="input-sm date-range" style="border: 1px solid #a9a9a9;" placeholder="注册时间">-->
+                                        <div class="btn btn-primary btn-sm btn-user-search"><i class="fa fa-search"></i>&nbsp;搜索</div>
+                                    </div>
+                                </form>
+                                <!--                        <div class="form-group">
+
+                                                        </div>-->
+                                <form id="table_form" class="table_form table-responsive" method="post">
+                                    <table class="table table-bordered table-hover dataTable table-striped text-center" role="grid">
+                                        <thead class="tr_order">
+                                        <tr>
+                                            <th>ID<i class="fa fa-fw fa-sort-amount-desc" data-order="id"></i></th>
+                                            <th>实体ID<i class="fa fa-fw fa-sort-amount-desc" data-order="entsn_id"></i></th>
+                                            <th>实体序列号<i class="fa fa-fw fa-sort-amount-desc" data-order="sn"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="tr_msg">
+
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="tcdPageCode"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+<?php $this->part('Footer');?>
+<script>
+    entity();
+</script>

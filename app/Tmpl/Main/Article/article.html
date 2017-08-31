@@ -1,0 +1,83 @@
+<?php $this->part('Header',$header);?>
+          <!-- Content Wrapper. Contains page content -->
+          <div class="content-wrapper">
+    		<!-- Content Header (Page header) -->
+			<div class="content-header" style="width:100%;">
+			    <h1 style="text-align:left;">
+			        文档管理
+			        <small>list</small>
+			    </h1>
+			    <ol class="breadcrumb">
+			        <li><a href="/index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+			        <li>文档管理</li>
+			        <li>文档列表</li>
+			    </ol>
+				<!-- Main content -->
+				<section class="content">
+				    <div class="row">
+				        <div class="col-xs-12">
+				            <div class="nav-tabs-custom">
+				                <!-- tab 标签 -->
+				                <ul class="nav nav-tabs">
+				                    <li class="active"><a href="javascript:;" data-toggle="tab">文档列表</a></li>
+				                </ul>
+				                <div class="tab-content">
+				                    <div class="tab-pane active" id="bicycle">
+                                        <form class="search_form" id="search_form">
+                                            <!--分页字段-->
+                                            <input type="hidden" id="page" name="page" value="1" />
+                                            <!--排序字段-->
+                                            <input type="hidden" id="order" name="order" value="" />
+                                            <!-- 搜索 -->
+                                            <div class="dataTables_length fa-border" style="margin: 10px 0; padding: 10px">
+                                                <select name="filter_type" id="filter_type" class="input-sm">
+                                                    <option value="id" selected="">ID</option>
+                                                    <option value="class_id">文档分类ID</option>
+                                                    <option value="content">文章标题</option>
+                                                </select>
+                                                <input type="text" name="id" value="" id="filter_text" class="input-sm" style="border: 1px solid #a9a9a9;"  onkeydown="javascript:if(event.keyCode==13) return false;">
+                                                <div class="btn btn-primary btn-sm btn-user-search"><i class="fa fa-search"></i>&nbsp;搜索</div>
+                                                <a class="btn btn-default btn-sm btn_add" href="/article/add.html"><i class="fa fa-plus"></i>&nbsp;新增</a>
+                                            </div>
+                                        </form>
+				<!--                        <div class="form-group">
+
+				                        </div>-->
+				                        <form id="table_form" class="table_form table-responsive" method="post">
+				                            <table class="table table-bordered table-hover dataTable table-striped text-center" role="grid">
+				                                <thead class="tr_order">
+				                                <tr>
+				                                    <th>ID<i class="fa fa-fw fa-sort-amount-desc" data-order="id"></i></th>
+                                                    <th>文档分类ID<i class="fa fa-fw fa-sort-amount-desc" data-order="class_id"></i></th>
+				                                    <th>分类名称<i class="fa fa-fw"></i></th>
+				                                    <th>文档标题<i class="fa fa-fw"></i></th>
+				                                    <th>状态<i class="fa fa-fw fa-sort-amount-desc" data-order="status"></i></th>
+				                                    <th>建立时间<i class="fa fa-fw fa-sort-amount-desc" data-order="ctime"></i></th>
+				                                    <th style="min-width:120px;">操作</th>
+				                                </tr>
+				                                </thead>
+				                                <tbody class="tr_msg">
+
+				                                </tbody>
+				                            </table>
+				                        </form>
+				                    </div>
+				                </div>
+				                <div class="row">
+				                    <div class="col-xs-12">
+				                        <div class="tcdPageCode"></div>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				</section>
+				    <!-- /.content -->
+			</div>
+		</div>
+
+          <!-- /.content-wrapper -->
+<?php $this->part('Footer');?>
+<script>
+	article();
+</script>

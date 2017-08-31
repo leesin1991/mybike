@@ -1,0 +1,143 @@
+<?php $this->part('Header',$header);?>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="width:100%;">
+        <h1 style="text-align:left;">
+            代理管理
+            <small>list</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">代理管理</li>
+            <li >代理详情</li>
+        </ol>	
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="nav-tabs-custom">
+                        <!-- tab 标签 -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="javascript:;" data-toggle="tab">代理详情</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="bicycle">
+                                <form class="search_form" id="search_form">
+                                    <!--分页字段-->
+                                    <input type="hidden" id="page" name="page" value="1" />
+                                    <!--排序字段-->
+                                    <input type="hidden" id="order" name="order" value="" />
+                                    <!-- 搜索 -->
+                                    <div class="dataTables_length fa-border" style="margin: 10px 0; padding: 10px">
+                                        <select name="filter_type" id="filter_type" class="input-sm">
+                                            <option value="id" selected="selected">ID</option>
+                                            <option value="mobile">手机号码</option>
+                                        </select>
+                                        <input type="text" name="id" value="" id="filter_text" class="input-sm" style="border: 1px solid #a9a9a9;" onkeydown="javascript:if (event.keyCode == 13)
+                                                    return false;">
+                                        <!--                                <input type="text" name="add_time" value="" class="input-sm date-range" style="border: 1px solid #a9a9a9;" placeholder="注册时间">-->
+                                        <div class="btn btn-primary btn-sm btn-user-search"><i class="fa fa-search"></i>&nbsp;搜索</div>
+                                        <div class="btn btn-default btn-sm btn_add"><i class="fa fa-plus"></i>&nbsp;新增</div>
+                                    </div>
+                                </form>
+                                <!--                        <div class="form-group">
+                                                            
+                                                        </div>-->
+                                <form id="table_form" class="table_form table-responsive" method="post">
+                                    <table class="table table-bordered table-hover dataTable table-striped text-center" role="grid">
+                                        <thead class="tr_order">
+                                            <tr>
+                                                <th>ID<i class="fa fa-fw fa-sort-amount-desc" data-order="id"></i></th>
+                                                <th>代理商账户<i class="fa fa-fw"></i></th>
+                                                <th>加盟商<i class="fa fa-fw"></i></th>
+                                                <th>联系手机<i class="fa fa-fw"></i></th>
+                                                <th>代理商邮件<i class="fa fa-fw"></i></th>
+                                                <th>父加盟商ID<i class="fa fa-fw fa-sort-amount-desc" data-order="parent_id"></i></th>
+                                                <th>是否认证<i class="fa fa-fw fa-sort-amount-desc" data-order="verified"></i></th>
+                                                <th>当前余额<i class="fa fa-fw fa-sort-amount-desc" data-order="balance"></i></th>
+                                                <th>状态<i class="fa fa-fw fa-sort-amount-desc" data-order="status"></i></th>
+                                                <th>建立时间<i class="fa fa-fw fa-sort-amount-desc" data-order="ctime"></i></th>
+                                                <th style="min-width:120px;">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="tr_msg">
+
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="tcdPageCode"></div>                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </section>
+        <!-- /.content -->
+    </div>
+</div>
+<!--弹出框修改 -->
+<form id="post-form">
+    <input type="hidden" name="id" id="id" value="" />
+    <div class="container_tan">
+        <div class="">
+            <div class="box-body" id="ocheck" >
+                <div class="form-group">
+                    <label for="account">代理商账户</label>
+                    <input type="text" class="form-control oChkong" value="" id="account" name="account" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="pssswd">代理商密码</label>
+                    <input type="text" class="form-control" value="" id="passwd" name="passwd" placeholder="" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="name">加盟商名称</label>
+                    <input type="text" class="form-control oChname" value="" id="name" name="name" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">联系手机</label>
+                    <input type="text" class="form-control oChphone" value="" id="mobile" name="mobile" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">代理商邮件</label>
+                    <input type="text" class="form-control oChmail" value="" id="email" name="email" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="parent_id">父加盟商</label>
+                    <select id="parent_id" name="parent_id" class="form-control">
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="balance">当前余额</label>
+                    <input type="text" class="form-control oChnofans" value="" id="balance" name="balance" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group" id="form-group-status">
+                    <label for="status">状态</label>
+                    <select id="status" name="status" class="form-control">
+                        <option value="0" selected="selected" >正常</option>
+                        <option value="1">删除</option>
+                        <option value="2">禁用</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>是否认证</label>
+                    <input type="radio" value="1"  name="verified">是
+                    <input type="radio" value="0"  name="verified">否
+                </div>
+                <div class="form"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><a class="btn btn-default text-center btn_exit">取消</a></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><a class="btn btn-default text-center btn_sure btn-post">确定</a></div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="tan_bgs"></div>
+<?php $this->part('Footer');?>
+<script>
+    agent();
+</script>

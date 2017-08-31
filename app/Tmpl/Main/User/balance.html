@@ -1,0 +1,126 @@
+<?php $this->part('Header',$header);?>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper"style="min-heigh:580px;">
+    <!-- Content Header (Page header) -->
+    <div class="content-header" style="width:100%;">
+        <h1>
+            用户管理
+            <small>list</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>用户管理</li>
+            <li class="active">资金变动</li>
+        </ol>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="nav-tabs-custom">
+                        <!-- tab 标签 -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="javascript:;" data-toggle="tab">资金变动</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="bicycle">
+                                <form class="balance_search_form" id="balance_search_form">
+                                    <!--分页字段-->
+                                    <input type="hidden" id="page" name="page" value="1" />
+                                    <!--排序字段-->
+                                    <input type="hidden" id="order" name="order" value="" />
+                                    <!-- 搜索 -->
+                                    <div class="dataTables_length fa-border" style="margin: 10px 0; padding: 10px">
+                                        <select name="filter_type" id="filter_type" class="input-sm">
+                                            <option value="id" selected="">ID</option>
+                                            <option value="client_id">用户ID</option>
+                                            <option value="payment_id">支付ID</option>
+                                        </select>
+                                        <input type="text" name="id" value="" id="filter_text" class="input-sm" style="border: 1px solid #a9a9a9;"  onkeydown="javascript:if (event.keyCode == 13)
+                                                    return false;">
+                                        <!--<select name="order_state" class="input-sm">-->
+                                        <!--<option value="">状态</option>-->
+                                        <!--<option value="-1">已取消</option>-->
+                                        <!--<option value="0">未生效</option>-->
+                                        <!--<option value="1">进行中</option>-->
+                                        <!--<option value="2">已完成</option>-->
+                                        <!--</select>-->
+                                        <!--                                        <input type="text" name="add_time" value="" class="input-sm date-range" style="border: 1px solid #a9a9a9;" placeholder="下单时间">-->
+
+                                        <!--<div class="pull-right">-->
+                                        <!--</div>-->
+                                        <div class="btn btn-primary btn-sm btn-balance-search"><i class="fa fa-search"></i>&nbsp;搜索</div>
+                                        <div class="btn btn-default btn-sm btn_add"><i class="fa fa-download"></i>&nbsp;新增</div>
+                                    </div>
+                                </form>
+                                <!--                                <div class="form-group">
+                                                                    <button class="btn btn-default btn-sm btn_add"><i class="fa fa-download"></i>&nbsp;新增</button>
+                                                                </div>-->
+                                <form id="table_form" class="table_form table-responsive" method="post">
+                                    <table class="table table-bordered table-hover dataTable table-striped text-center" role="grid">
+                                        <thead class="tr_order">
+                                            <tr>
+                                                <th>ID<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="id"></i></th>
+                                                <!--<th>用户ID<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="client_id"></i></th>-->
+                                                <th>用户姓名</th>
+                                                <th>支付ID<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="payment_id"></i></th>
+                                                <th>备注信息</th>
+                                                <th>当前余额<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="current"></i></th>
+                                                <th>状态<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="status"></i></th>
+                                                <th>创建时间<i class="fa fa-fw fa-sort-amount-desc text-right" data-order="ctime"></i></th>
+                                                <th style="min-width:130px;">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="tr_msg">
+
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <div class="tcdPageCode"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </section>
+        <!-- /.content -->
+    </div>
+</div>
+<!--弹出框修改 -->
+<form id="balance-post-form">
+    <input type="hidden" id="id" name="id" value="" />
+    <div class="container_tan">
+        <div class="">
+            <div class="box-body" id="ocheck">
+                <div class="form-group">
+                    <label for="client_id">用户ID</label>
+                    <input type="text" class="form-control oChpattern" value="" id="client_id" name="client_id" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="current">当前余额</label>
+                    <input type="text" class="form-control oChnofans" value="" id="current" name="current" placeholder="" required="required"><div class="" type="text" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="note">备注信息</label>
+                    <textarea class="form-control oChkong" id="note" name="note" style="resize:none" ></textarea><div class="" type="text" ></div>
+                </div>
+                <div class="form-group" id="form-group-status">
+                    <label for="status">状态</label>
+                    <select id="status" name="status" class="form-control">
+                        <option value="0" selected="selected">正常</option>
+                        <option value="1">删除</option>
+                        <option value="2">禁用</option>
+                    </select>
+                </div>
+                <div class="form"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><a class="btn btn-default text-center btn_exit">取消</a></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center"><a class="btn btn-default text-center btn_sure btn-balance-post">确定</a></div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="tan_bgs"></div>
+<!-- /.content-wrapper -->
+<?php $this->part('Footer');?>
+<script>
+    balance();
+</script>
